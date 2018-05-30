@@ -4,17 +4,25 @@ import Router from "vue-router";
 const _import = require("./_import_" + process.env.NODE_ENV);
 Vue.use(Router);
 export const constantRouterMap = [
-	{ path: '/', redirect: '/index' }, // 默认就跳转此页面
 	{
-		path: "/index",
-		component: _import("index/home/index"),
-		name: "首页"
-	},
-	{
-		path: "/aboutme",
-		component: _import("index/aboutme/index"),
-		name: "关于我们"
+		path: '/',
+		component: _import("index/index"),
+		name: 'shouye',
+		children: [
+			{
+				path: "/index",
+				component: _import("index/home/index"),
+				name: "首页",
+				
+			},
+			{
+				path: "/aboutme",
+				component: _import("index/aboutme/index"),
+				name: "关于我们"
+			}
+		]
 	}
+
 ];
 
 export default new Router({

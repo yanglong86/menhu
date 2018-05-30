@@ -1,6 +1,8 @@
 <template>
     <div>
-        222
+        <div class="top">
+            22
+        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -26,5 +28,8 @@
 </script>
 
 <style scoped>
+    .top{
+        height: 50px; line-height: 50px; background: #0b1018
+    }
 
 </style>
