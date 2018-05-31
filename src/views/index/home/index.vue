@@ -21,9 +21,9 @@
                     </div>
                     <div style="text-align: center" class="sel-btn0">
                         <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
                         <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
                     </div>
                 </div>
                 <div class="item">
@@ -32,23 +32,44 @@
                     </div>
                     <div style="text-align: center" class="sel-btn0">
                         <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
                         <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
                     </div>
 
                 </div>
             </div>
         </div>
-        <self-title></self-title>
+        <div class="inner-warp">
+            <self-title>
+
+            </self-title>
+        </div>
+
+        <div class="inner-warp">
+            <div style="width: 400px; float: right">
+                <pingtai-gonggao>
+
+                </pingtai-gonggao>
+            </div>
+            <div style="margin-right: 410px;">
+                <zixin-list>
+
+                </zixin-list>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
-    import selfTitle from "../commponets/self_titel"
+	import selfTitle from "../commponets/self_titel"
+	import zixinList from "../commponets/zixin_list"
+	import pingtaiGonggao from "../commponets/pingtai_gonggao"
+
 	export default {
 		name: "index",
-        components:{selfTitle},
+		components: {selfTitle, zixinList, pingtaiGonggao},
 		data() {
 			return {
 				formove: false,
@@ -65,9 +86,13 @@
 
 <style scoped>
     .warp {
-        height: 800px;
-        background: #f3f3f3;
+        background: #ffffff;
         overflow: hidden;
+    }
+
+    .inner-warp {
+        padding: 15px;
+        overflow: auto;
     }
 
     .text {
