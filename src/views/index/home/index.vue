@@ -16,43 +16,56 @@
         <div class="text">
             <div class="inner-text">
                 <div class="item">
-                    <div class="item-text">
-                        wwww
+                    <div class="item-text" :class="{hhh:formove}">
+                        五星在线策略
                     </div>
-                    <div style="text-align: center">
-                        <a class="pan-btn pink-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                        <a class="pan-btn pink-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                    <div style="text-align: center" class="sel-btn0">
+                        <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                        <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
                     </div>
-
-
                 </div>
                 <div class="item">
-                    <div class="item-text">
-                        wwww
+                    <div class="item-text" :class="{hhh:formove1}">
+                        五星在线期货策略
                     </div>
-                    <div style="text-align: center">
-                        <a class="pan-btn pink-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                        <a class="pan-btn pink-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                    <div style="text-align: center" class="sel-btn0">
+                        <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
+                        <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
+                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
                     </div>
 
                 </div>
             </div>
         </div>
+        <self-title></self-title>
     </div>
 </template>
 
 <script>
+    import selfTitle from "../commponets/self_titel"
 	export default {
 		name: "index",
+        components:{selfTitle},
 		data() {
-			return {}
+			return {
+				formove: false,
+				formove1: false
+			}
+		},
+		methods: {
+			animationText(t, s) {
+				this[t] = s
+			}
 		}
 	}
 </script>
 
 <style scoped>
     .warp {
-        height: 400px;
+        height: 800px;
         background: #f3f3f3;
         overflow: hidden;
     }
@@ -70,12 +83,14 @@
         height: 100%;
     }
 
-    .item-text{
+    .item-text {
         height: 50px;
         line-height: 50px;
         font-size: 28px;
         color: #fff;
         text-align: center;
+        transform: rotate(0deg);
+
     }
 
     .inner-text {
@@ -89,23 +104,23 @@
         margin: auto;
     }
 
-    /*.warp:hover{*/
-    /*animation: myfirst 0.8s;*/
-    /*-webkit-animation:myfirst 0.8s; !* Safari and Chrome *!*/
-    /*}*/
+    .hhh {
+        animation: myfirst 0.2s;
+        -webkit-animation: myfirst 0.2s; /* Safari and Chrome */
+    }
 
     @keyframes myfirst {
         0% {
             transform: rotate(0deg);
         }
         25% {
-            transform: rotate(0.5deg);
+            transform: rotate(6deg);
         }
         50% {
             transform: rotate(0deg);
         }
         75% {
-            transform: rotate(-0.5deg);
+            transform: rotate(-6deg);
         }
         100% {
             transform: rotate(0deg);
@@ -114,11 +129,20 @@
 
     @-webkit-keyframes myfirst /* Safari and Chrome */
     {
-        from {
-            background: red;
+        0% {
+            transform: rotate(0deg);
         }
-        to {
-            background: yellow;
+        25% {
+            transform: rotate(6deg);
+        }
+        50% {
+            transform: rotate(0deg);
+        }
+        75% {
+            transform: rotate(-6deg);
+        }
+        100% {
+            transform: rotate(0deg);
         }
     }
 

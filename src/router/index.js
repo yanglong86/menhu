@@ -7,10 +7,9 @@ export const constantRouterMap = [
 	{
 		path: '/',
 		component: _import("index/index"),
-		name: 'shouye',
 		children: [
 			{
-				path: "/index",
+				path: "/",
 				component: _import("index/home/index"),
 				name: "首页",
 				
