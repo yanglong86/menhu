@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import 'babel-polyfill';
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
 
 import Element from 'element-ui'

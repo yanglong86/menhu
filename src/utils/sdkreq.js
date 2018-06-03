@@ -7,8 +7,7 @@ var service = axios.create({
 	baseURL: process.env.BASE_API, // api的base_url
 	timeout: 5000, // 请求超时时间
 	headers: {
-		'Content-Type': 'application/json;charset=utf-8',
-		'authorization': window.location.search.split('&')[0].replace('?', '')
+		'Content-Type': 'application/json;charset=utf-8'
 	},
 	transformRequest: [function (data) {
 		data = JSON.stringify(data);
@@ -25,8 +24,7 @@ const sdk = function (url, methods, data, token) {
 			baseURL: process.env.BASE_API, // api的base_url
 			timeout: 5000, // 请求超时时间
 			headers: {
-				'Content-Type': 'application/json;charset=utf-8',
-				'authorization': token
+				'Content-Type': 'application/json;charset=utf-8'
 			},
 			transformRequest: [function (data) {
 				data = JSON.stringify(data);
@@ -61,59 +59,17 @@ const sdk = function (url, methods, data, token) {
 		service[met](newUrl, data)
 			.then(function (response) {
 				load.close();
-				let code = response.data.rtnCode,
+				let code = response.data.code,
 					sData = {
-						message: response.data.rtnMsg,
-						data: response.data.body
-					},
-					eData = {message: response.data.rtnMsg, data: null},
-					bufferParam = 0;
+						data: response.data.data
+					};
 				
-				
-				/***
-				 * @bufferParam  0  结果OK  类型  前台正常显示
-				 * @bufferParam  1  结果Err 类型  前台直接显示错误
-				 * @bufferParam  2+ 结果Err 类型 前台需要执行指定的业务
-				 *                     20 跳转登录页面
-				 * ***/
-				
-				if (code.length === 3) {
-					bufferParam = 1;
-					eData.message = "系统故障，请稍后访问"
+				if (code === 20000) {
+					resolve(sData);
+				} else {
+					reject(sData);
 				}
 				
-				if (code.length === 4) {
-					
-					if (code[0] === '3') {
-						bufferParam = 20;
-					} else {
-						bufferParam = 1;
-					}
-				}
-				
-				if (code.length === 6) {
-					if (code === '000000') {
-						bufferParam = 0;
-					}
-					
-					if (code === '999999') {
-						bufferParam = 1;
-					}
-				}
-				
-				switch (bufferParam) {
-					case 0:
-						resolve(sData);
-						break;
-					case 1:
-						reject(sData);
-						break;
-					case 20:
-						window.location.href = `${process.env.BASE_API}/login`;
-						break;
-					default:
-						reject(sData);
-				}
 			}, function (err) {
 				load.close();
 				console.log(err)
