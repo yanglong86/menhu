@@ -1,14 +1,14 @@
 <template>
     <div class="warp">
         <div class="title">
-            ABD
+            {{cont.t1}}
         </div>
 
         <div class="text">
-            <div class="moer">更多
+            <div class="moer" v-if="cont.url">更多
                 <svg-icon icon-class="moer"/>
             </div>
-            <div style="margin-right: 90px;">带你领略业内最前沿的财经资讯</div>
+            <div style="margin-right: 90px;">{{cont.t2}}</div>
 
         </div>
 
@@ -19,6 +19,11 @@
 	export default {
 		name: "self_titel",
 		components: {},
+        props:{
+	        cont:{
+				default:{}
+            }
+        },
 		data() {
 			return {}
 		},

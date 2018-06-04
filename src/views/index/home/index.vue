@@ -2,15 +2,21 @@
     <div class="warp">
         <div class="fg" :style="bg">
             <div class="nav">
-                <div class="left">2222</div>
+                <div class="left"><img :src="logo" alt="" style="width: 430px; padding: 12px;"></div>
                 <div class="right">
                 <span>首页
                     <div class="line"></div>
                 </span>
-                    <span>开始
+                    <span>关于我们
                 <div class="line"></div></span>
-                    <span>结束
+                    <span>新手攻略
                 <div class="line"></div></span>
+                    <span>财经资讯
+                <div class="line"></div></span>
+
+                    <span>客户端下载
+                <div class="line"></div></span>
+
                 </div>
             </div>
 
@@ -43,7 +49,7 @@
             </div>
         </div>
         <div class="inner-warp">
-            <self-title>
+            <self-title :cont="{t1:'财经资讯',t2:'带你领略业内最前沿的财经资讯',url:'1111'}">
 
             </self-title>
         </div>
@@ -60,8 +66,16 @@
                 </zixin-list>
             </div>
         </div>
+        <div class="inner-warp">
+            <self-title :cont="{t1:'四大优势， 助您盈利',t2:'1分钟快速开户，界面简洁方便易上手，系统有严格的风控体系',url:''}">
 
-        <youshi></youshi>
+            </self-title>
+        </div>
+
+        <div class="inner-warp">
+            <youshi></youshi>
+        </div>
+
     </div>
 </template>
 
@@ -71,21 +85,23 @@
 	import pingtaiGonggao from "../commponets/pingtai_gonggao"
 
 
+	import youshi from "../commponets/youshi"
 
-    import youshi from "../commponets/youshi"
+	import logo from "@/assets/images/logo.png"
 
 
 	export default {
 		name: "index",
-		components: {selfTitle, zixinList, pingtaiGonggao},
+		components: {selfTitle, zixinList, pingtaiGonggao, youshi},
 		data() {
 			return {
+				logo,
 				formove: false,
 				formove1: false,
 				imgStr: '',
 				bg: {
 					// background: 'url(img/pho6.jpg)'
-					background: '#ff0000'
+					background: ''
 				}
 			}
 		},
@@ -108,6 +124,7 @@
 		},
 		mounted() {
 			this.loadBanner();
+			console.log(this.logo)
 		},
 		computed: {
 			src() {
@@ -212,6 +229,7 @@
         background-color: rgba(0, 0, 0, 0.2);
         height: 80px;
         line-height: 80px;
+
     }
 
     .left {
