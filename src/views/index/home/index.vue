@@ -41,14 +41,20 @@
             </div>
         </div>
         <self-title></self-title>
+        <youshi></youshi>
     </div>
 </template>
 
 <script>
     import selfTitle from "../commponets/self_titel"
+
+
+    import youshi from "../commponets/youshi"
+
+
 	export default {
 		name: "index",
-        components:{selfTitle},
+        components:{selfTitle,youshi},
 		data() {
 			return {
 				formove: false,

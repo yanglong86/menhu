@@ -5,7 +5,7 @@
         </div>
 
         <div  class="text">
-            <div style="float: left; margin-right: 50px; width: 100%; background: #2d8ac7">1111</div>
+            <div style="float: left; margin-right: 50px; width: 100%;">1111</div>
             <div style="width: 50px;background: red">更多</div>
 
         </div>
