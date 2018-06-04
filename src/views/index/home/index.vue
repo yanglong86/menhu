@@ -1,52 +1,75 @@
 <template>
     <div class="warp">
-        <div class="nav">
-            <div class="left">2222</div>
-            <div class="right">
+        <div class="fg" :style="bg">
+            <div class="nav">
+                <div class="left">2222</div>
+                <div class="right">
                 <span>首页
                     <div class="line"></div>
                 </span>
-                <span>开始
+                    <span>开始
                 <div class="line"></div></span>
-                <span>结束
+                    <span>结束
                 <div class="line"></div></span>
+                </div>
+            </div>
+
+            <div class="text">
+                <div class="inner-text">
+                    <div class="item">
+                        <div class="item-text" :class="{hhh:formove}">
+                            五星在线策略
+                        </div>
+                        <div style="text-align: center" class="sel-btn0">
+                            <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
+                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
+                            <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
+                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text" :class="{hhh:formove1}">
+                            五星在线期货策略
+                        </div>
+                        <div style="text-align: center" class="sel-btn0">
+                            <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
+                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
+                            <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
+                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inner-warp">
+            <self-title>
+
+            </self-title>
+        </div>
+
+        <div class="inner-warp">
+            <div style="width: 400px; float: right">
+                <pingtai-gonggao>
+
+                </pingtai-gonggao>
+            </div>
+            <div style="margin-right: 410px;">
+                <zixin-list>
+
+                </zixin-list>
             </div>
         </div>
 
-        <div class="text">
-            <div class="inner-text">
-                <div class="item">
-                    <div class="item-text" :class="{hhh:formove}">
-                        五星在线策略
-                    </div>
-                    <div style="text-align: center" class="sel-btn0">
-                        <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                        <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-text" :class="{hhh:formove1}">
-                        五星在线期货策略
-                    </div>
-                    <div style="text-align: center" class="sel-btn0">
-                        <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                        <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                           class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">Form</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <self-title></self-title>
         <youshi></youshi>
     </div>
 </template>
 
 <script>
-    import selfTitle from "../commponets/self_titel"
+	import selfTitle from "../commponets/self_titel"
+	import zixinList from "../commponets/zixin_list"
+	import pingtaiGonggao from "../commponets/pingtai_gonggao"
+
 
 
     import youshi from "../commponets/youshi"
@@ -54,16 +77,41 @@
 
 	export default {
 		name: "index",
-        components:{selfTitle,youshi},
+		components: {selfTitle, zixinList, pingtaiGonggao},
 		data() {
 			return {
 				formove: false,
-				formove1: false
+				formove1: false,
+				imgStr: '',
+				bg: {
+					// background: 'url(img/pho6.jpg)'
+					background: '#ff0000'
+				}
 			}
 		},
 		methods: {
 			animationText(t, s) {
 				this[t] = s
+			},
+
+			loadBanner() {
+				this.imgStr = '';
+				this.$root.ax('/img/home', 'get', null).then(r => {
+					this.bg.background = "url(" + process.env.BASE_API + "/" + r.data[0].url + ")" + " no-repeat";
+					this.bg.backgroundSize = "100% 100%";
+					console.log(this.imgStr)
+				}, e => {
+					console.log(e)
+				})
+
+			}
+		},
+		mounted() {
+			this.loadBanner();
+		},
+		computed: {
+			src() {
+				return process.env.BASE_API + "/" + this.imgStr
 			}
 		}
 	}
@@ -71,15 +119,23 @@
 
 <style scoped>
     .warp {
-        height: 800px;
-        background: #f3f3f3;
+        background: #ffffff;
         overflow: hidden;
+    }
+
+    .fg {
+        height: 600px;
+    }
+
+    .inner-warp {
+        padding: 15px;
+        overflow: auto;
     }
 
     .text {
         height: 300px;
-        background: #d4e8ff;
         position: relative;
+        top: 182px;
     }
 
     .inner-text .item {
@@ -153,10 +209,9 @@
     }
 
     .nav {
-        background: green;
-        background-color: rgba(0, 128, 0, 0.2);
-        height: 100px;
-        line-height: 100px;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 80px;
+        line-height: 80px;
     }
 
     .left {

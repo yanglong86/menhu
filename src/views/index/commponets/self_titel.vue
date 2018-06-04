@@ -4,9 +4,11 @@
             ABD
         </div>
 
-        <div  class="text">
-            <div style="float: left; margin-right: 50px; width: 100%;">1111</div>
-            <div style="width: 50px;background: red">更多</div>
+        <div class="text">
+            <div class="moer">更多
+                <svg-icon icon-class="moer"/>
+            </div>
+            <div style="margin-right: 90px;">带你领略业内最前沿的财经资讯</div>
 
         </div>
 
@@ -32,23 +34,34 @@
 </script>
 
 <style scoped>
-    .warp{
+    .moer {
+        width: 90px;
+        float: right;
+    }
+
+    .moer:hover {
+        color: #2d2f33;
+        cursor: pointer;
+
+    }
+
+    .warp {
         border-left: 4px solid #ac0003;
         height: 60px;
         padding: 0 10px;
     }
 
-    .warp .title{
+    .warp .title {
         height: 40px;
         font-size: 25px;
-        color: red;
+        color: #ac0003;
         transition: border-bottom 2s;
     }
 
-    .warp .text{
+    .warp .text {
         height: 20px;
         line-height: 25px;
-        color: #8f8c86;
+        color: #a7a49e;
         clear: both;
         overflow: hidden;
     }
@@ -59,12 +72,12 @@
         bottom: -7px;
         right: 0;
         display: block;
-        background: #8f8c86;
+        background: #d4d1ca;
         width: 0;
         height: 1px;
         left: -1px;
-        animation: clipMe 4s ease infinite;
-        animation-direction:alternate;
+        animation: clipMe 12s ease infinite;
+        animation-direction: alternate;
 
     }
 
