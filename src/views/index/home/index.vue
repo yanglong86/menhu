@@ -1,25 +1,6 @@
 <template>
     <div class="warp">
         <div class="fg" :style="bg">
-            <div class="nav">
-                <div class="left"><img :src="logo" alt="" style="width: 430px; padding: 12px;"></div>
-                <div class="right">
-                <span>首页
-                    <div class="line"></div>
-                </span>
-                    <span>关于我们
-                <div class="line"></div></span>
-                    <span>新手攻略
-                <div class="line"></div></span>
-                    <span>财经资讯
-                <div class="line"></div></span>
-
-                    <span>客户端下载
-                <div class="line"></div></span>
-
-                </div>
-            </div>
-
             <div class="text">
                 <div class="inner-text">
                     <div class="item">
@@ -72,10 +53,53 @@
             </self-title>
         </div>
 
-        <div class="inner-warp">
-            <youshi></youshi>
+        <div class="inner-warp" style="overflow: hidden;">
+            <el-row :gutter="40">
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <youshi :conf="{icon:'mengkan',t1:'超低门槛',t2:'最低1000元信用金',t3:'即可创建最高8000元A股策略'}"></youshi>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <youshi :conf="{icon:'gaoshouyi',t1:'超过收益',t2:'投资人出资金，按约买卖',t3:'盈利分成8成给你(秒到)'}"></youshi>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <youshi :conf="{icon:'fuwu',t1:'灵活方便',t2:'无需开户、选好股票',t3:'想买卖多少，一件提交'}"></youshi>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div class="grid-content bg-purple">
+                        <youshi :conf="{icon:'jilv',t1:'养成纪律',t2:'严格按照策略止损止盈进行',t3:'交易、不再深套、保护利润'}"></youshi>
+                    </div>
+                </el-col>
+            </el-row>
         </div>
 
+
+        <div class="inner-warp" style="margin: 50px 0">
+            <img :src="footStr" alt="" style="width: 100%">
+        </div>
+
+
+        <div class="inner-warp" style="text-align: center;font-size: 45px;font-weight: 500">
+            合作伙伴
+
+        </div>
+
+
+        <div class="inner-warp" style="overflow: hidden;">
+            <el-row :gutter="40">
+                <el-col :span="4" v-for="(o,k) in hezuos" :key="k"
+                        style="height: 80px; overflow: hidden; margin: 8px 0 ">
+                    <img class="img-item" :src="o.image">
+                </el-col>
+
+
+            </el-row>
+        </div>
     </div>
 </template>
 
@@ -88,6 +112,7 @@
 	import youshi from "../commponets/youshi"
 
 	import logo from "@/assets/images/logo.png"
+	import footStr from "@/assets/images/footbg.png"
 
 
 	export default {
@@ -99,10 +124,13 @@
 				formove: false,
 				formove1: false,
 				imgStr: '',
+				footStr,
 				bg: {
 					// background: 'url(img/pho6.jpg)'
 					background: ''
-				}
+				},
+
+				hezuos: []
 			}
 		},
 		methods: {
@@ -120,10 +148,27 @@
 					console.log(e)
 				})
 
+			},
+
+			loadHezuo() {
+				this.imgStr = '';
+				this.$root.ax('/img/hezuo', 'get', null).then(r => {
+					this.hezuos = []
+					for (let x in r.data) {
+						let b = r.data[x];
+						b.image = process.env.BASE_API + '/' + r.data[x].image
+						this.hezuos.push(b)
+					}
+					console.log(this.hezuos)
+				}, e => {
+					console.log(e)
+				})
+
 			}
 		},
 		mounted() {
 			this.loadBanner();
+			this.loadHezuo();
 			console.log(this.logo)
 		},
 		computed: {
@@ -136,7 +181,7 @@
 
 <style scoped>
     .warp {
-        background: #ffffff;
+        background: #f3f3f3;
         overflow: hidden;
     }
 
@@ -152,7 +197,7 @@
     .text {
         height: 300px;
         position: relative;
-        top: 182px;
+        top: 265px;
     }
 
     .inner-text .item {
@@ -267,4 +312,15 @@
     .right span:hover .line {
         width: 30px;
     }
+
+    .img-item {
+        width: 100%;
+        height: 100%
+    }
+
+    .img-item:hover {
+        width: 101%;
+        height: 101%;
+    }
+
 </style>
