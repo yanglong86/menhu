@@ -17,7 +17,14 @@ export const constantRouterMap = [
 			{
 				path: "/aboutme",
 				component: _import("index/aboutme/index"),
-				name: "关于我们"
+				name: "关于我们",
+				children: [
+					{path: "/aboutme/aboutme", component: _import("index/aboutme/commponets/aboutme"), name: "关于我们"},
+					{path: "/aboutme/linkme", component: _import("index/aboutme/commponets/linkme"), name: "联系我们"},
+					{path: "/aboutme/zifei", component: _import("index/aboutme/commponets/zifei"), name: "收费标准"},
+					{path: "/aboutme/fenkong", component: _import("index/aboutme/commponets/fenkong"), name: "风控规则"},
+					{path: "/aboutme/zijing", component: _import("index/aboutme/commponets/zijing"), name: "资金相关"},
+				]
 			}
 		]
 	}

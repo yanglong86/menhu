@@ -1,79 +1,83 @@
 <template>
-    <div>
-        <div class="top">
-            <div style="float: left">欢迎来到五星在线： {{about.web}}</div>
-            <div style="float: right">{{about.worktime}}</div>
-        </div>
-        <div class="nav">
-            <div class="left"><img :src="logo" alt="" style="width: 430px; padding: 12px;"></div>
-            <div class="right">
-                <span>首页
+    <div style="height: 100%">
+        <el-scrollbar style="height: 100%">
+            <div class="top">
+                <div style="float: left">欢迎来到五星在线： {{about.web}}</div>
+                <div style="float: right">{{about.worktime}}</div>
+            </div>
+            <div class="nav">
+                <div class="left"><img :src="logo" alt="" style="width: 430px; padding: 12px;"></div>
+                <div class="right">
+                <span><a href="#/">首页</a>
                     <div class="line"></div>
                 </span>
-                <span>关于我们
+                    <span><a href="#/aboutme">关于我们</a>
                 <div class="line"></div></span>
-                <span>新手攻略
+                    <span>新手攻略
                 <div class="line"></div></span>
-                <span>财经资讯
-                <div class="line"></div></span>
-
-                <span>客户端下载
+                    <span>财经资讯
                 <div class="line"></div></span>
 
+                    <span>客户端下载
+                <div class="line"></div></span>
+
+                </div>
             </div>
-        </div>
-        <router-view></router-view>
-        <div class="foot">
-            <div class="foot-left">
+            <router-view></router-view>
+            <div class="foot">
+                <div class="foot-left">
 
-                <div style="height: 150px;font-size: 25px;line-height: 150px">
-                    关于我们
-                </div>
+                    <div style="height: 150px;font-size: 25px;line-height: 150px">
+                        关于我们
+                    </div>
 
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    近在咫尺的市场，触手可及的机遇
-                </div>
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        近在咫尺的市场，触手可及的机遇
+                    </div>
 
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    投资有风险 &nbsp;&nbsp; 入市需谨慎
-                </div>
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        投资有风险 &nbsp;&nbsp; 入市需谨慎
+                    </div>
 
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    中安（广州）投资控股有限公司
-                    <span style="padding: 0 15px; color: #37bcff">
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        中安（广州）投资控股有限公司
+                        <span style="padding: 0 15px; color: #37bcff">
                         粤ICP备17120658号-2
                     </span>
+                    </div>
                 </div>
+
+                <div class="foot-right">
+                    <div style="height: 140px; width: 140px; line-height: 210px; text-align:center ">微信扫一扫</div>
+                    <div><img :src="ewm" alt=""></div>
+                </div>
+                <div class="foot-center">
+                    <div style="height: 150px;font-size: 25px;line-height: 150px">
+
+                    </div>
+
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        招商加盟：&nbsp;&nbsp;<span style="font-size: 16px">{{about.phone}}</span>（工作日{{about.worktime}}）
+                    </div>
+
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        网 址： &nbsp;&nbsp;{{about.web}}
+                    </div>
+
+                    <div style="height: 50px;font-size: 13px;line-height: 50px">
+                        五星在线期待你的加盟， 金融界新时代的创富机会
+
+                    </div>
+                </div>
+
             </div>
-
-            <div class="foot-right">
-                <div style="height: 140px; width: 140px"></div>
-            </div>
-            <div class="foot-center">
-                <div style="height: 150px;font-size: 25px;line-height: 150px">
-
-                </div>
-
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    招商加盟：&nbsp;&nbsp;<span style="font-size: 16px">{{about.phone}}</span>（工作日{{about.worktime}}）
-                </div>
-
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    网 址： &nbsp;&nbsp;{{about.web}}
-                </div>
-
-                <div style="height: 50px;font-size: 13px;line-height: 50px">
-                    五星在线期待你的加盟， 金融界新时代的创富机会
-
-                </div>
-            </div>
-
-        </div>
+        </el-scrollbar>
     </div>
 </template>
 
 <script>
 	import logo from "@/assets/images/logo.png"
+	import ewm from "@/assets/images/ewm.png"
 
 	export default {
 		name: "index",
@@ -81,6 +85,7 @@
 		data() {
 			return {
 				logo,
+				ewm,
 				about: {}
 			}
 		},
@@ -153,7 +158,7 @@
     }
 
     .right span:hover .line {
-        width: 30px;
+        width: 100%;
     }
 
     .foot {
@@ -163,22 +168,23 @@
         padding: 0 15px;
     }
 
-    .foot-left{
+    .foot-left {
         width: 400px;
         height: 350px;
         float: left;
 
     }
 
-    .foot-right{
+    .foot-right {
         width: 180px;
         height: 350px;
         float: right;
     }
 
-    .foot-center{
+    .foot-center {
         height: 350px;
         text-align: right;
+        padding: 0 210px;
     }
 
 </style>
