@@ -1,42 +1,34 @@
 <template>
     <div class="warp">
 
-        <div class="item">
+        <div class="item" v-for="(o,k) in conf">
             <div class="img">
+                <img :src="o.image" style="width: 100%;height: 100%"/>
             </div>
             <div class="cont">
-                <div class="cont-title">中国股份</div>
+                <div class="cont-title">{{o.title}}</div>
                 <div class="cont-text">
-                    中国股份中国股份中国股份中国股份中国股份中国股份中国股份中国
+                    {{o.gaiyao}}
                 </div>
                 <div class="cont-foot">
-                    2017-08-09 23:22:44
+                    {{o.time}}
                     <span class="btn">查看全文</span>
                 </div>
             </div>
         </div>
-
-        <div class="item">
-            <div class="img">
-            </div>
-            <div class="cont">
-                <div class="cont-title">中国股份</div>
-                <div class="cont-text">
-                    中国股份中国股份中国股份中国股份中国股份中国股份中国股份中国
-                </div>
-                <div class="cont-foot">
-                    2017-08-09 23:22:44
-                    <span class="btn">查看全文</span>
-                </div>
-            </div>
-        </div>
-
     </div>
 </template>
 
 <script>
 	export default {
-		name: "zixin_list"
+		name: "zixin_list",
+		props: {
+			conf: {
+				default: function () {
+					return {}
+				}
+			}
+		}
 	}
 </script>
 
@@ -54,7 +46,7 @@
         border-bottom: 1px solid #dedbd5;
     }
 
-    .item:last-child{
+    .item:last-child {
         border-bottom: none;
     }
 
@@ -93,7 +85,7 @@
         line-height: 30px
     }
 
-    .btn{
+    .btn {
         float: right;
         padding: 3px 15px;
         background: none;
@@ -102,9 +94,9 @@
         cursor: pointer;
     }
 
-    .btn:hover{
+    .btn:hover {
         background: #FF0000;
         color: #ffffff;
-        border: 1px  solid #FF0000;
+        border: 1px solid #FF0000;
     }
 </style>

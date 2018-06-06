@@ -42,7 +42,7 @@
                 </pingtai-gonggao>
             </div>
             <div style="margin-right: 410px;">
-                <zixin-list>
+                <zixin-list :conf="zixunList">
 
                 </zixin-list>
             </div>
@@ -130,7 +130,8 @@
 					background: ''
 				},
 
-				hezuos: []
+				hezuos: [],
+				zixunList:[]
 			}
 		},
 		methods: {
@@ -170,6 +171,18 @@
 			this.loadBanner();
 			this.loadHezuo();
 			console.log(this.logo)
+			this.$root.ax('/zixun/hot', 'get', null).then(r => {
+				this.zixunList = []
+				for (let x in r.data) {
+					let b = r.data[x];
+					b.image = process.env.BASE_API + '/' + r.data[x].image
+					this.zixunList.push(b)
+				}
+				console.log(this.zixunList)
+			}, e => {
+				console.log(e)
+			})
+
 		},
 		computed: {
 			src() {

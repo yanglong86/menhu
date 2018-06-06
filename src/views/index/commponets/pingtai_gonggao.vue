@@ -14,7 +14,7 @@
 <style scoped>
     .warp {
         box-shadow: 0 0 10px #a7a49e;
-        height: 500px;
+        height: 445px;
     }
 
     .title{
