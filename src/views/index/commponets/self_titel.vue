@@ -42,6 +42,7 @@
     .moer {
         width: 90px;
         float: right;
+        text-align: right;
     }
 
     .moer:hover {

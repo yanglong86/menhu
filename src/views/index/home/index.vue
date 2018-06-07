@@ -29,22 +29,27 @@
                 </div>
             </div>
         </div>
-        <div class="inner-warp">
-            <self-title :cont="{t1:'财经资讯',t2:'带你领略业内最前沿的财经资讯',url:'1111'}">
 
-            </self-title>
-        </div>
 
-        <div class="inner-warp">
+        <div class="inner-warp" style="margin-top: 15px">
+
             <div style="width: 400px; float: right">
                 <pingtai-gonggao>
 
                 </pingtai-gonggao>
             </div>
-            <div style="margin-right: 410px;">
-                <zixin-list :conf="zixunList">
+            <div style="margin-right: 410px; overflow: auto">
+                <div style="height: 80px">
+                    <self-title :cont="{t1:'财经资讯',t2:'带你领略业内最前沿的财经资讯',url:'1111'}">
 
-                </zixin-list>
+                    </self-title>
+                </div>
+                <div style="width: 100%; padding: 6px">
+                    <zixin-list :conf="zixunList">
+
+                    </zixin-list>
+                </div>
+
             </div>
         </div>
         <div class="inner-warp">
@@ -142,7 +147,7 @@
 			loadBanner() {
 				this.imgStr = '';
 				this.$root.ax('/img/home', 'get', null).then(r => {
-					this.bg.background = "url(" + process.env.BASE_API + "/" + r.data[0].url + ")" + " no-repeat";
+					this.bg.background = "url(" + process.env.BASE_API + "/" + r.data.data[0].url + ")" + " no-repeat";
 					this.bg.backgroundSize = "100% 100%";
 					console.log(this.imgStr)
 				}, e => {
@@ -155,9 +160,9 @@
 				this.imgStr = '';
 				this.$root.ax('/img/hezuo', 'get', null).then(r => {
 					this.hezuos = []
-					for (let x in r.data) {
-						let b = r.data[x];
-						b.image = process.env.BASE_API + '/' + r.data[x].image
+					for (let x in r.data.data) {
+						let b = r.data.data[x];
+						b.image = process.env.BASE_API + '/' + r.data.data[x].image
 						this.hezuos.push(b)
 					}
 					console.log(this.hezuos)
@@ -173,9 +178,9 @@
 			console.log(this.logo)
 			this.$root.ax('/zixun/hot', 'get', null).then(r => {
 				this.zixunList = []
-				for (let x in r.data) {
-					let b = r.data[x];
-					b.image = process.env.BASE_API + '/' + r.data[x].image
+				for (let x in r.data.data) {
+					let b = r.data.data[x];
+					b.image = process.env.BASE_API + '/' + r.data.data[x].image
 					this.zixunList.push(b)
 				}
 				console.log(this.zixunList)

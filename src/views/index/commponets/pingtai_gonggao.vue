@@ -7,14 +7,14 @@
 
 <script>
 	export default {
-		name: "zixin_list"
+		name: "pingtai_gonggao"
 	}
 </script>
 
 <style scoped>
     .warp {
         box-shadow: 0 0 10px #a7a49e;
-        height: 445px;
+        height: 528px;
     }
 
     .title{

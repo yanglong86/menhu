@@ -13,9 +13,11 @@
                 </span>
                     <span><a href="#/aboutme">关于我们</a>
                 <div class="line"></div></span>
-                    <span>新手攻略
+                    <span>
+                        <a href="#/gonglv">新手攻略</a>
                 <div class="line"></div></span>
-                    <span>财经资讯
+                    <span>
+                        <a href="#/zixun">财经资讯</a>
                 <div class="line"></div></span>
 
                     <span>客户端下载
@@ -93,7 +95,7 @@
 		mounted() {
 			console.log(this.logo)
 			this.$root.ax("aboutme", "get", null).then(r => {
-				this.about = r.data[0];
+				this.about = r.data.data[0];
 				console.log(this.about)
 
 			}, e => {

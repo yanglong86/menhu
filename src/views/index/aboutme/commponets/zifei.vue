@@ -17,7 +17,7 @@
 		mounted() {
 			this.$root.ax('/pingtai/1/10/s', 'get', null).then(r => {
 				console.log(r)
-				this.infoData = r.data[0]
+				this.infoData = r.data.data[0]
 			}, e => {
 			})
 		},

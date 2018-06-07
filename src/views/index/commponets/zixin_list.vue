@@ -12,7 +12,7 @@
                 </div>
                 <div class="cont-foot">
                     {{o.time}}
-                    <span class="btn">查看全文</span>
+                    <span class="btn" @click="goTo(o)">查看全文</span>
                 </div>
             </div>
         </div>
@@ -28,7 +28,13 @@
 					return {}
 				}
 			}
-		}
+		},
+        methods:{
+			goTo(o){
+				this.$router.push({path: `/zixun/${o.id}`})
+
+            }
+        }
 	}
 </script>
 

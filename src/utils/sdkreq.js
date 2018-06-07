@@ -61,7 +61,7 @@ const sdk = function (url, methods, data, token) {
 				load.close();
 				let code = response.data.code,
 					sData = {
-						data: response.data.data
+						data: response.data
 					};
 				
 				if (code === 20000) {

@@ -26,7 +26,15 @@ export const constantRouterMap = [
 					{path: "/aboutme/zijing", component: _import("index/aboutme/commponets/zijing"), name: "资金相关"},
 				],
 				redirect:'/aboutme/aboutme'
-			}
+			},
+			{
+				path: "/zixun",
+				component: _import("index/zixun/index"),
+				name: "财经资讯"
+
+			},
+			{path: "/zixun/:id", component: _import("index/zixun/detail"), name: "财经资讯详情"},
+			{path: "/gonglv", component: _import("index/gonglv/gonglv"), name: "攻略"}
 		]
 	}
 

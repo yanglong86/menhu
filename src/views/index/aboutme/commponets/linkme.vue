@@ -20,7 +20,7 @@
 		mounted() {
 
 			this.$root.ax("aboutme", "get", null).then(r => {
-				this.about = r.data[0];
+				this.about = r.data.data[0];
 				console.log(this.about)
 
 			}, e => {

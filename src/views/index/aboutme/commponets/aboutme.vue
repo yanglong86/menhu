@@ -19,8 +19,8 @@
 		mounted() {
 			this.$root.ax('/pingtai/1/10/l', 'get', null).then(r => {
 				console.log(r)
-				if (r.data.length > 0) {
-					this.infoData = r.data[0]
+				if (r.data.data.length > 0) {
+					this.infoData = r.data.data[0]
 				}
 			}, e => {
 			})
