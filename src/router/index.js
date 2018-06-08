@@ -24,6 +24,7 @@ export const constantRouterMap = [
 					{path: "/aboutme/zifei", component: _import("index/aboutme/commponets/zifei"), name: "收费标准"},
 					{path: "/aboutme/fenkong", component: _import("index/aboutme/commponets/fenkong"), name: "风控规则"},
 					{path: "/aboutme/zijing", component: _import("index/aboutme/commponets/zijing"), name: "资金相关"},
+					{path: "/aboutme/gonggao", component: _import("index/commponets/pingtai_gonggao"), name: "平台公告"},
 				],
 				redirect:'/aboutme/aboutme'
 			},

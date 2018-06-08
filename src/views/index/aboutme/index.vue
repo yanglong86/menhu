@@ -20,6 +20,10 @@
                         <a href="#/aboutme/fenkong" @click="goToItem('风控规则')">风控规则</a>
                     </div>
 
+                    <div class="list" :class="{active: current == '平台公告'}">
+                        <a href="#/aboutme/gonggao" @click="goToItem('平台公告')">平台公告</a>
+                    </div>
+
                     <div class="list" :class="{active: current == '联系我们'}">
                         <a href="#/aboutme/linkme" @click="goToItem('联系我们')">联系我们</a>
                     </div>
