@@ -20,7 +20,8 @@
                         <a href="#/zixun">财经资讯</a>
                 <div class="line"></div></span>
 
-                    <span>客户端下载
+                    <span>
+                                              <a href="#/load">客户端下载</a>
                 <div class="line"></div></span>
 
                 </div>

@@ -9,9 +9,9 @@
                         </div>
                         <div style="text-align: center" class="sel-btn0">
                             <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
+                               class="pan-btn pink-btn sel-btn" href="http://clzatz.wxzx88.com/pcpay/" target="_blank">登录</a>
                             <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
+                               class="pan-btn pink-btn sel-btn" href="http://clzatz.wxzx88.com/#/register" target="_blank">注册</a>
                         </div>
                     </div>
                     <div class="item">
@@ -20,9 +20,9 @@
                         </div>
                         <div style="text-align: center" class="sel-btn0">
                             <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">登录</a>
+                               class="pan-btn pink-btn sel-btn" href="http://qhzatz.wxzx88.com/pcpay/" target="_blank">登录</a>
                             <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                               class="pan-btn pink-btn sel-btn" href="https://www.baidu.com" target="_blank">注册</a>
+                               class="pan-btn pink-btn sel-btn" href="http://qhzatz.wxzx88.com/home/#/register" target="_blank">注册</a>
                         </div>
 
                     </div>

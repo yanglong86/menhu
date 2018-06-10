@@ -35,7 +35,8 @@ export const constantRouterMap = [
 
 			},
 			{path: "/zixun/:id", component: _import("index/zixun/detail"), name: "财经资讯详情"},
-			{path: "/gonglv", component: _import("index/gonglv/gonglv"), name: "攻略"}
+			{path: "/gonglv", component: _import("index/gonglv/gonglv"), name: "攻略"},
+			{path: "/load", component: _import("index/load/index"), name: "客户端下载"}
 		]
 	}
 
