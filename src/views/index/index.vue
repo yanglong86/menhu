@@ -3,7 +3,7 @@
         <el-scrollbar style="height: 100%">
             <div class="top">
                 <div style="float: left">欢迎来到五星在线： {{about.web}}</div>
-                <div style="float: right">{{about.worktime}}</div>
+                <div style="float: right">客服热线：&nbsp; {{about.phone}}</div>
             </div>
             <div class="nav">
                 <div class="left"><img :src="logo" alt="" style="width: 430px; padding: 12px;"></div>

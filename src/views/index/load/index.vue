@@ -11,7 +11,7 @@
                     <img :src="ewm" style="width: 100%"/>
                 </div>
                 <div style="width: 250px;height: 30px; line-height: 30px; text-align: center;color: #787974">
-                    Andriod手机扫描二维码下载
+                    手机扫描二维码下载
                 </div>
                 <div style="width: 250px;height: 60px; line-height: 30px; text-align: center;color: #787974">
 

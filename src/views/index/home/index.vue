@@ -1,8 +1,19 @@
 <template>
     <div class="warp">
         <div class="fg" :style="bg">
+            <div class="tl">
+
+                <div>
+                    <pre class="title1">{{homeItem.t1}}</pre>
+                </div>
+                <div>
+                    <pre class="title2">{{homeItem.t2}}</pre>
+                </div>
+            </div>
             <div class="text">
+
                 <div class="inner-text">
+
                     <div class="item">
                         <div class="item-text" :class="{hhh:formove}">
                             五星在线策略
@@ -11,7 +22,8 @@
                             <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
                                class="pan-btn pink-btn sel-btn" href="http://clzatz.wxzx88.com/pcpay/" target="_blank">登录</a>
                             <a @mouseover="animationText('formove',true)" @mouseout="animationText('formove',false)"
-                               class="pan-btn pink-btn sel-btn" href="http://clzatz.wxzx88.com/#/register" target="_blank">注册</a>
+                               class="pan-btn pink-btn sel-btn" href="http://clzatz.wxzx88.com/#/register"
+                               target="_blank">注册</a>
                         </div>
                     </div>
                     <div class="item">
@@ -22,7 +34,8 @@
                             <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
                                class="pan-btn pink-btn sel-btn" href="http://qhzatz.wxzx88.com/pcpay/" target="_blank">登录</a>
                             <a @mouseover="animationText('formove1',true)" @mouseout="animationText('formove1',false)"
-                               class="pan-btn pink-btn sel-btn" href="http://qhzatz.wxzx88.com/home/#/register" target="_blank">注册</a>
+                               class="pan-btn pink-btn sel-btn" href="http://qhzatz.wxzx88.com/home/#/register"
+                               target="_blank">注册</a>
                         </div>
 
                     </div>
@@ -136,7 +149,8 @@
 				},
 
 				hezuos: [],
-				zixunList:[]
+				zixunList: [],
+                homeItem:{}
 			}
 		},
 		methods: {
@@ -149,6 +163,7 @@
 				this.$root.ax('/img/home', 'get', null).then(r => {
 					this.bg.background = "url(" + process.env.BASE_API + "/" + r.data.data[0].url + ")" + " no-repeat";
 					this.bg.backgroundSize = "100% 100%";
+					this.homeItem =  r.data.data[0];
 					console.log(this.imgStr)
 				}, e => {
 					console.log(e)
@@ -198,6 +213,105 @@
 </script>
 
 <style scoped>
+
+    .title1 {
+        font-size: 40px;
+        text-align: center;
+        font-weight: 600;
+        color: #d1dbe5;
+        position: relative;
+        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 8s infinite linear;
+    }
+
+    @-webkit-keyframes masked-animation {
+        0% {
+            background-position: 0 0;
+        }
+        10% {
+            background-position: -100% 0;
+        }
+        20% {
+            opacity: 1
+        }
+        25% {
+            opacity: 0
+        }
+        30% {
+            opacity: 1
+        }
+        35% {
+            opacity: 0
+        }
+        40% {
+            opacity: 1
+        }
+        50%{
+
+            opacity: 0.6;
+        }
+
+        60%{
+
+            opacity: 1;
+            top: 0px;
+
+        }
+        70%{
+            top: -50px;
+        }
+
+
+        75%{
+            top: 40px;
+        }
+
+        80%{
+            top: -50px;
+        }
+
+        85%{
+            top: 30px;
+        }
+
+        90%{
+            top: -50px;
+        }
+
+        95%{
+            top: 20px;
+        }
+
+        100%{
+            top: 0px;
+        }
+    }
+
+
+    @-webkit-keyframes masked-animation1 {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+
+    }
+
+    .title2 {
+        font-size: 20px;
+        text-align: center;
+        color: #d1dbe5;
+        background-image: -webkit-linear-gradient(left, #fffff2, #6a88ff 25%, #b1c1ff 50%, #fffff2 75%, #b1c1ff);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation1 8s infinite linear;
+    }
+
     .warp {
         background: #f3f3f3;
         overflow: hidden;
@@ -216,6 +330,13 @@
         height: 300px;
         position: relative;
         top: 265px;
+    }
+
+    .tl {
+        height: 180px;
+        width: 100%;
+        position: absolute;
+        top: 180px;
     }
 
     .inner-text .item {
